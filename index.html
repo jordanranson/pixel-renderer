@@ -25,47 +25,20 @@
   <div class="renderer">
     <canvas id="glCanvas" width="320" height="180"></canvas>
   </div>
-
-  <script id="vertex-shader" type="x-shader/x-vertex">
-    attribute vec2 aVertexPosition;
-    attribute vec4 aVertexColor;
-    // attribute vec2 aTextureCoord;
-
-    // uniform vec2 uScalingFactor;
-
-    // varying highp vec2 vTextureCoord;
-    varying lowp vec4 vColor;
-
-    void main() {
-      gl_Position = vec4(aVertexPosition, 0.0, 1.0);
-      // vTextureCoord = aTextureCoord;
-      vColor = aVertexColor;
-    }
-  </script>
-
-  <script id="fragment-shader" type="x-shader/x-fragment">
-    #ifdef GL_ES
-      precision highp float;
-    #endif
-
-    //varying highp vec2 vTextureCoord;
-
-    //uniform sampler2D uSampler;
-    varying lowp vec4 vColor;
-
-    void main() {
-      // gl_FragColor = texture2D(uSampler, vTextureCoord);
-      gl_FragColor = vColor;
-    }
-  </script>
-
   <script src="./index.js"></script>
   <script>
     function draw () {
+      // const { width, height, screenBuffer } = this
+      //
+      // for (let i = 0; i < width*height*4; i += 4) {
+      //   screenBuffer[i]   = Math.floor(Math.random()*255)
+      //   screenBuffer[i+1] = Math.floor(Math.random()*255)
+      //   screenBuffer[i+2] = Math.floor(Math.random()*255)
+      //   screenBuffer[i+3] = 255
+      // }
     }
 
     const renderer = new Renderer({ glCanvas, draw })
-
-    renderer.run()
+    renderer.start()
   </script>
 </body>
